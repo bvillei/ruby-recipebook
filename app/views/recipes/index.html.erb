@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Recipes</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Image</th>
+    <th>Name</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @recipes.each do |recipe| %>
+    <tr>
+      <td><%= recipe.image %></td>
+      <td><%= link_to recipe.name, recipe %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Recipe', new_recipe_path, class: 'btn btn-primary'%>

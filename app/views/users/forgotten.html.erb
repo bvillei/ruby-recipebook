@@ -1,0 +1,11 @@
+<h1>Forgotten password</h1>
+<fieldset>
+  <legend>Please give your your email address</legend>
+  <%= form_for :user, url: { controller: 'users', action: 'send_forgotten' }, method: :post do |form| %>
+    <div>
+      <%= form.label :email %>
+      <%= form.text_field :email, size: 40 %>
+    </div>
+    <%= form.submit "Recover password" %>
+  <% end %>
+</fieldset>

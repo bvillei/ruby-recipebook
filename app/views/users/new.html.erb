@@ -1,0 +1,24 @@
+<h1>Register</h1>
+<fieldset>
+  <legend>Register a new user</legend>
+  <%= form_for :user, url: { controller: 'users', action: 'create' }, method: :post do |form| %>
+    <div>
+      <%= form.label :name %>
+      <%= form.text_field :name, size: 20 %>
+    </div>
+    <div>
+      <%= form.label :email %>
+      <%= form.text_field :email, size: 40 %>
+    </div>
+    <div>
+      <%= form.label :password %>
+      <%= form.password_field :password, size: 20 %>
+    </div>
+    <div>
+      <%= form.label :password_confirmation %>
+      <%= form.password_field :name, size: 20 %>
+    </div>
+    <%= form.submit "Register" %>
+  <% end %>
+</fieldset>
+<%= link_to "Back", :back %>
