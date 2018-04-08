@@ -4,26 +4,7 @@ class RecipesController < ApplicationController
   # GET /recipes
   # GET /recipes.json
   def index
-    # @recipes = Recipe.all
-    recipe1 = Recipe.new
-    recipe1.id  = 1
-    recipe1.user = User.new name: 'Valaki', id: 1
-    recipe1.name = 'Fishsoup'
-    recipe1.category = 'Soup'
-    recipe1.image = 'No image'
-    recipe1.ingredients = 'Fish, Soup'
-    recipe1.description = 'Take the fish into the soup'
-
-    recipe2 = Recipe.new
-    recipe2.id = 2
-    recipe2.user = User.new name: 'Mas valaki', id: 2
-    recipe2.name = 'Chocolate'
-    recipe2.category = 'Dessert'
-    recipe2.image = 'No image'
-    recipe2.ingredients = 'Chocolate bar'
-    recipe2.description = 'Open the chocolate bar and eat it'
-
-    @recipes = [ recipe1, recipe2 ]
+    @recipes = Recipe.all
   end
 
   # GET /recipes/1

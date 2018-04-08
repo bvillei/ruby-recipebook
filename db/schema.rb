@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180323095840) do
+ActiveRecord::Schema.define(version: 20180407201249) do
 
   create_table "recipes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "user_id"
@@ -27,9 +27,10 @@ ActiveRecord::Schema.define(version: 20180323095840) do
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "email"
-    t.string "password"
+    t.string "encrypted_password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "salt"
   end
 
   add_foreign_key "recipes", "users"
