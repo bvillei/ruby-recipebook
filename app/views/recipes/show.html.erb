@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <strong>User:</strong>
+  <%= @recipe.owner.name %>
+</p>
 
 <p>
   <strong>Name:</strong>
@@ -13,7 +17,7 @@
 
 <p>
   <strong>Image:</strong>
-  <%= @recipe.image %>
+  <%= image_tag(@recipe.image, width: 250) %>
 </p>
 
 <p>
@@ -26,5 +30,7 @@
   <%= @recipe.description %>
 </p>
 
-<%= link_to 'Edit', edit_recipe_path(@recipe), class: 'btn btn-warning' %> |
+<% if logged_in? %>
+  <%= link_to 'Edit', edit_recipe_path(@recipe), class: 'btn btn-warning' %> |
+<% end %>
 <%= link_to 'Back', recipes_path %>

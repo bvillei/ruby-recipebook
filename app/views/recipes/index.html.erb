@@ -13,7 +13,7 @@
   <tbody>
   <% @recipes.each do |recipe| %>
     <tr>
-      <td><%= recipe.image %></td>
+      <td><%= image_tag(recipe.image, width: 80) %></td>
       <td><%= link_to recipe.name, recipe %></td>
     </tr>
   <% end %>
@@ -21,5 +21,6 @@
 </table>
 
 <br>
-
-<%= link_to 'New Recipe', new_recipe_path, class: 'btn btn-primary'%>
+<% if logged_in? %>
+  <%= link_to 'New Recipe', new_recipe_path, class: 'btn btn-primary' %>
+<% end %>
