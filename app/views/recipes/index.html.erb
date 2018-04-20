@@ -2,6 +2,8 @@
 
 <h1>Recipes</h1>
 
+<%= will_paginate @recipes %>
+
 <table>
   <thead>
   <tr>
@@ -13,7 +15,11 @@
   <tbody>
   <% @recipes.each do |recipe| %>
     <tr>
-      <td><%= image_tag(recipe.image, width: 80) %></td>
+      <td>
+        <% unless recipe.attachment.nil? %>
+          <img width="80px" src="<%= download_path(recipe.id, recipe.attachment.id) %>"></img>
+        <% end %>
+      </td>
       <td><%= link_to recipe.name, recipe %></td>
     </tr>
   <% end %>
@@ -21,6 +27,9 @@
 </table>
 
 <br>
+
+<%= will_paginate @recipes %>
+
 <% if logged_in? %>
   <%= link_to 'New Recipe', new_recipe_path, class: 'btn btn-primary' %>
 <% end %>

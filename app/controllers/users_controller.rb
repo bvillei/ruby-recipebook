@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.new(name: user_params[:name], password: user_params[:password], email: user_params[:email], password_confirmation: user_params[:password_confirmation])
     if @user.save
       session[:user] = @user.id
       flash[:notice] = "Successful registration"
@@ -20,8 +20,8 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.update(user_params)
-    redirect_back
+    @user.update(name: user_params[:name], password: user_params[:password], email: user_params[:email], password_confirmation: user_params[:password_confirmation])
+    redirect_to action: :show
   end
 
   def forgotten
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
 
   private
   def find_user
-    @user = User.find session[:user]
+    @user = User.find params[:id]#session[:user]
   end
 
   def user_params

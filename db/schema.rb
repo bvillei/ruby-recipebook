@@ -10,13 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180407201249) do
+ActiveRecord::Schema.define(version: 20180420213216) do
+
+  create_table "attachments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "filename"
+    t.string "mime"
+    t.bigint "recipe_id"
+    t.string "path"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipe_id"], name: "index_attachments_on_recipe_id"
+  end
 
   create_table "recipes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "user_id"
     t.string "name"
     t.string "category"
-    t.string "image"
     t.string "ingredients"
     t.string "description"
     t.datetime "created_at", null: false
@@ -33,5 +42,6 @@ ActiveRecord::Schema.define(version: 20180407201249) do
     t.string "salt"
   end
 
+  add_foreign_key "attachments", "recipes"
   add_foreign_key "recipes", "users"
 end

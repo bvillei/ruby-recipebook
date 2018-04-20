@@ -1,2 +1,8 @@
+<p><%= link_to "View profile", profile_path(@current_user.id) %></p>
+<p><%= link_to "Edit profile", edit_profile_path(@current_user.id) %></p>
+<br>
 <p><%= link_to "View recipes", recipes_path %></p>
 <p><%= link_to "Add recipe", new_recipe_path %></p>
+<br>
+<p><%= link_to "Logout", logout_path %></p>
+

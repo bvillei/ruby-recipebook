@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  filename: MyString
+  mime: MyString
+  recipe: one
+  path: MyString
+
+two:
+  filename: MyString
+  mime: MyString
+  recipe: two
+  path: MyString
