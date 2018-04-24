@@ -1,6 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Recipes</h1>
+<h1><%= params[:search] if params[:search] != "%" %> Recipes</h1>
+
+
+
+<%= form_tag("/recipes", method: "get") do %>
+  <%= label_tag(:search, "Search for:") %>
+  <%= select_tag(:search, options_for_select([["All", "%"], ["Soup", "Soup"], ["Main", "Main"], ["Dessert", "Dessert"]])) %>
+  <%= submit_tag("Search") %>
+<% end %>
 
 <%= will_paginate @recipes %>
 
@@ -17,7 +25,7 @@
     <tr>
       <td>
         <% unless recipe.attachment.nil? %>
-          <img width="80px" src="<%= download_path(recipe.id, recipe.attachment.id) %>"></img>
+          <img width="80px" src="<%= download_path(recipe.id, recipe.attachment.id) %>">
         <% end %>
       </td>
       <td><%= link_to recipe.name, recipe %></td>

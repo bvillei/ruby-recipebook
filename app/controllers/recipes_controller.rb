@@ -4,7 +4,11 @@ class RecipesController < ApplicationController
   # GET /recipes
   # GET /recipes.json
   def index
-    @recipes = paginate(Recipe.all, params[:page])
+    @recipes = if params[:search]
+                 paginate(Recipe.where('category LIKE ?', "%#{params[:search]}%"), params[:page])
+               else
+                 paginate(Recipe.all, params[:page])
+               end
   end
 
   # GET /recipes/1
@@ -79,7 +83,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
   end
 
-  def paginate(recipes,page)
+  def paginate(recipes, page)
     recipes.paginate(page: page, per_page: 5)
   end
 
