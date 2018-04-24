@@ -1,2 +1,20 @@
-<h1>Welcome <%= @current_user.name %></h1>
 <h1>Welcome <%= @current_user.name if logged_in? %></h1>
+<p>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget nunc interdum, pulvinar justo non, iaculis
+  elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras mauris metus,
+  luctus congue mauris ac, convallis sollicitudin velit. Maecenas condimentum fermentum velit sed volutpat. Sed
+  ultrices, nisl vel facilisis posuere, dolor ante dignissim tellus, eu dapibus erat nibh sed ipsum. Quisque scelerisque
+  imperdiet pretium. Fusce vitae ullamcorper nunc, sit amet pretium sem. Nulla condimentum augue in enim luctus, vitae
+  scelerisque augue rhoncus.
+</p>
+<p>
+  Vestibulum et augue faucibus, tincidunt nunc in, ultrices lorem. Donec egestas ultricies mauris non blandit. Sed
+  commodo, nunc sit amet convallis porta, ante felis tristique lacus, eu convallis turpis lectus id lectus. Aenean
+  tempor convallis turpis. Sed neque libero, commodo vitae hendrerit nec, finibus eget dolor. Suspendisse potenti.
+  Aenean diam libero, dictum ac massa sed, bibendum laoreet elit. Proin sed accumsan quam.
+</p>
+<h4>Today's offer:</h4>
+<% unless @recipe.attachment.nil? %>
+  <img height="200px" src="<%= download_path(@recipe.id, @recipe.attachment.id) %>">
+<% end %>
+<h6><%= link_to @recipe.name, @recipe %></h6>
