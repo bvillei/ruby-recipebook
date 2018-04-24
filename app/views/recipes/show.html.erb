@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>User:</strong>
+  <strong>Owner:</strong>
   <%= @recipe.owner.name %>
 </p>
 
@@ -32,7 +32,7 @@
   <%= @recipe.description %>
 </p>
 
-<% if logged_in? %>
+<% if recipe_owner? %>
   <%= link_to 'Edit', edit_recipe_path(@recipe), class: 'btn btn-warning' %> |
 <% end %>
 <%= link_to 'Back', recipes_path %>

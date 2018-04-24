@@ -4,9 +4,9 @@
       <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
 
       <ul>
-      <% recipe.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% recipe.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
@@ -33,7 +33,7 @@
 
   <div class="field">
     <%= form.label :description %>
-    <%= form.text_area :description, id: :recipe_description %>
+    <%= form.text_area :description, rows: 5, id: :recipe_description %>
   </div>
 
   <div class="actions">
