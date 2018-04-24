@@ -1,1 +1,2 @@
 <h1>Welcome <%= @current_user.name %></h1>
+<h1>Welcome <%= @current_user.name if logged_in? %></h1>

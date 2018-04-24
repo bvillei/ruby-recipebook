@@ -4,6 +4,6 @@ class ApplicationController < ActionController::Base
 
   protected
   def find_session
-    @current_user = User.find session[:user]
+    @current_user = User.find session[:user] if session[:user]
   end
 end
