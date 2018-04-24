@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.update(name: user_params[:name], password: user_params[:password], email: user_params[:email], password_confirmation: user_params[:password_confirmation])
+    @user.update(name: user_params[:name], email: user_params[:email], password: user_params[:password], password_confirmation: user_params[:password_confirmation])
     redirect_to action: :show
   end
 
