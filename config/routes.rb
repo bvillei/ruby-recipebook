@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   post 'users/create', to: 'users#create', as:'user'
 
   get 'users/:id/edit', to: 'users#edit', as: 'edit_profile'
-  put 'users/:id', to: 'users#update'
+  put 'users/:id', to: 'users#update', as: 'update_profile'
 
   get 'users/:id', to: 'users#show', as: 'profile'
 

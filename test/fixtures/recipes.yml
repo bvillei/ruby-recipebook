@@ -1,17 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user: one
-  name: MyString
-  category: MyString
-  image: MyString
-  ingredients: MyString
-  description: MyString
+  id: 123
+  user_id: 2222
+  name: Fish soup
+  category: Soup
+  ingredients: Fish, soup
+  description: Take the fish into the soup
 
 two:
-  user: two
-  name: MyString
-  category: MyString
-  image: MyString
-  ingredients: MyString
-  description: MyString
+  id: 456
+  user_id: 3333
+  name: Chocolate bar
+  category: Dessert
+  ingredients: Chocolate
+  description: Open it and eat it
